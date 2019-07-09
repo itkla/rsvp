@@ -1,4 +1,5 @@
 <?php
+  $config = json_decode(file_get_contents("config.json"), true);
   $db = new SQLite3('rsvp.db');
   $i = 0;
   function resultSetToArray($queryResultSet){
@@ -40,13 +41,14 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th>#</th>
+                    <th><i class="fas fa-check"></i></th>
                     <th>Name</th>
-                    <th><abbr title="Designated Driver">DD</abbr></th>
+                    <?php if($config["alcohol"] == true) { echo "<th><abbr title="Designated Driver">DD</abbr></th>"; } ?>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while($i!=count($entries)) { echo "<tr><td>" . ($i + 1) . "</td><td><b>" . $entries[$i]['name'] . "</b></td><td>" . $entries[$i]['dd'] . "</td></tr>"; $i++; } ?>
+                  <?php if($config["alcohol"] == true) { while($i!=count($entries)) { echo "<tr><td>" . ($i + 1) . "</td><td><b>" . $entries[$i]['name'] . "</b></td><td>" . $entries[$i]['dd'] . "</td></tr>"; $i++; }} ?>
+                  <?php if($config["alcohol"] == false) { while($i!=count($entries)) { echo "<tr><td>" . ($i + 1) . "</td><td><b>" . $entries[$i]['name'] . "</b></td></tr>"; $i++; }} ?>
                 </tbody>
               </table>
               <h2>Not on this list? <a href="index.php">Sign up!</a></h2>
