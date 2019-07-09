@@ -40,12 +40,13 @@
               <table class="table">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>Name</th>
                     <th><abbr title="Designated Driver">DD</abbr></th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php while($i!=count($entries)) { echo "<tr><td>" . $entries[$i]['name'] . "</td><td>" . $entries[$i]['dd'] . "</td></tr>"; $i++; } ?>
+                  <?php while($i!=count($entries)) { echo "<tr><td>" . ($i + 1) . "</td><td>" . $entries[$i]['name'] . "</td><td>" . $entries[$i]['dd'] . "</td></tr>"; $i++; } ?>
                 </tbody>
               </table>
             </div>
