@@ -31,21 +31,25 @@
     <section class="hero is-fullheight">
       <!-- Hero content: will be in the middle -->
       <div class="hero-body">
-        <div class="container">
+        <div class="container has-text-centered">
           <h1 class="title">
             Attendees
           </h1>
-          <table class="table">
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th><abbr title="Designated Driver">DD</abbr></th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php while($i!=count($entries)) { echo "<tr><td>" . $entries[$i]['name'] . "</td><td>" . $entries[$i]['dd'] . "</td></tr>"; $i++; } ?>
-            </tbody>
-          </table>
+          <div class="columns is-centered">
+            <div class="column is-narrow">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th><abbr title="Designated Driver">DD</abbr></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php while($i!=count($entries)) { echo "<tr><td>" . $entries[$i]['name'] . "</td><td>" . $entries[$i]['dd'] . "</td></tr>"; $i++; } ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </section>

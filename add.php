@@ -13,11 +13,11 @@
     $result = $db->query($query) or die("Could not process query.");
     $rows = ($result->fetchArray());
     if($rows>0) {
-      header("Location: ../?status=duplicate");
+      header("Location: ./?status=duplicate");
     } else {
       $date = date("d/m/Y h:i:sa");
       $db->exec("INSERT INTO attendees (name, dd, time) VALUES ('$name', '$dd', '$date')");
-      header("Location: ../?status=okay&name=$name");
+      header("Location: ./?status=okay&name=$name");
     }
     /*
     $db->exec("INSERT INTO attendees (name, dd) VALUES ('$name', '$dd')");
