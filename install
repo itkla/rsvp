@@ -3,7 +3,7 @@
   if(file_exists("rsvp.db")) {
     echo "rsvp.db exists. Skipping.\n";
   } else {
-    echo "rsvp.db does not exists. Creating...\n";
+    echo "rsvp.db does not exist. Creating...\n";
     $db = new SQLite3('rsvp.db');
     $db->exec('CREATE TABLE IF NOT EXISTS "attendees" (
     	"id"	INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -28,8 +28,11 @@
       echo "Was it really that hard for you to give me a yes/no answer? Aborting.";
     }
     $config->ga_key = readline("(OPTIONAL) Set your Google Analytics key here. ");
+    echo "Jsonify-ing your inputs...";
     $jsonedConfig = json_encode($config);
+    echo "Bagging them up and putting them in config.json...";
     file_put_contents('config.json', $jsonedConfig);
+    echo "Done. rsvp is ready.";
   } else {
     echo "Aborting.\n";
   }

@@ -51,7 +51,7 @@
                   <?php if($config["alcohol"] == false) { while($i!=count($entries)) { echo "<tr><td>" . ($i + 1) . "</td><td><b>" . $entries[$i]['name'] . "</b></td></tr>"; $i++; }} ?>
                 </tbody>
               </table>
-              <h2>Not on this list? <a href="index.php">Sign up!</a></h2>
+              <h2>Not on this list? <a href=".">Sign up!</a></h2>
             </div>
           </div>
         </div>
