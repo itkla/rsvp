@@ -30,12 +30,8 @@
   </head>
   <body>
     <section class="hero is-fullheight">
-      <!-- Hero content: will be in the middle -->
       <div class="hero-body">
         <div class="container has-text-centered">
-          <h1 class="title">
-            Attendees
-          </h1>
           <div class="columns is-centered">
             <div class="column is-narrow">
               <table class="table">
@@ -47,10 +43,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <?php if($config["alcohol"] == true) { while($i!=count($entries)) { echo "<tr><td>" . ($i + 1) . "</td><td><b>" . $entries[$i]['name'] . "</b></td><td>" . $entries[$i]['dd'] . "</td></tr>"; $i++; }} ?>
-                  <?php if($config["alcohol"] == false) { while($i!=count($entries)) { echo "<tr><td>" . ($i + 1) . "</td><td><b>" . $entries[$i]['name'] . "</b></td></tr>"; $i++; }} ?>
+                  <?php if($config["alcohol"] == true) { while($i!=count($entries)) { echo "<tr><td><b>" . $entries[$i]['name'] . "</b></td><td>" . $entries[$i]['dd'] . "</td></tr>"; $i++; }} ?>
+                  <?php if($config["alcohol"] == false) { while($i!=count($entries)) { echo "<tr><td><b>" . $entries[$i]['name'] . "</b></td></tr>"; $i++; }} ?>
                 </tbody>
               </table>
+              <h1 class="title">
+                <?php echo $i; ?> attendees
+              </h1>
               <h2>Not on this list? <a href=".">Sign up!</a></h2>
             </div>
           </div>
@@ -58,3 +57,4 @@
       </div>
     </section>
   </body>
+</html>
