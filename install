@@ -1,0 +1,36 @@
+<?php
+  echo "Checking if rsvp.db exists...\n";
+  if(file_exists("rsvp.db")) {
+    echo "rsvp.db exists. Skipping.\n";
+  } else {
+    echo "rsvp.db does not exists. Creating...\n";
+    $db = new SQLite3('rsvp.db');
+    $db->exec('CREATE TABLE IF NOT EXISTS "attendees" (
+    	"id"	INTEGER PRIMARY KEY AUTOINCREMENT,
+    	"name"	TEXT,
+    	"dd"	TEXT,
+    	"time"	TEXT,
+    	"ip"	TEXT
+    );');
+    echo "Done.\n";
+  };
+  if(readline("Config.json will now be created. If it exists already, it will be overwritten and all contents lost. To proceed, type \"YES\".\n") == "YES") {
+    echo "Confirmed.\n";
+    @$config->event = readline("What is the event? ");
+    $config->details = readline("What are the details of the event? ");
+    $config->html_title = readline("What do you want the title of the web page to be? ");
+    $configalcohol = strtoupper(readline("Is alcohol a thing at this event? (yes/no) "));
+    if($configalcohol == "NO" || $configalcohol == "FALSE") {
+      $config->alcohol = false;
+    } elseif ($configalcohol == "YES" || $configalcohol == "TRUE") {
+      $config->alcohol = true;
+    } else {
+      echo "Was it really that hard for you to give me a yes/no answer? Aborting.";
+    }
+    $config->ga_key = readline("(OPTIONAL) Set your Google Analytics key here. ");
+    $jsonedConfig = json_encode($config);
+    file_put_contents('config.json', $jsonedConfig);
+  } else {
+    echo "Aborting.\n";
+  }
+?>

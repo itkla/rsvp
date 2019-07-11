@@ -1,4 +1,8 @@
 <?php
+  if(!file_exists("rsvp.db")) {
+    echo "Please run <b>php install</b> from the command line.\n";
+    exit;
+  }
   $db = new SQLite3('rsvp.db');
   $config = json_decode(file_get_contents("config.json"), true);
   $query = "SELECT COUNT(*) as count FROM attendees";
@@ -22,13 +26,13 @@
     <link rel="stylesheet" href="assets/css/bulma.min.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $config["ga-key"]; ?>"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $config["ga_key"]; ?>"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', '<?php echo $config["ga-key"]; ?>');
+      gtag('config', '<?php echo $config["ga_key"]; ?>');
     </script>
   </head>
   <body>

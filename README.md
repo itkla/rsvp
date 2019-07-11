@@ -8,4 +8,5 @@ Take my group of friends for example. We can bicker and argue about what we're d
 
 ## Installing
 Clone this repository to any web directory (in my case, `/var/www/hauteclaire.me`) so that your url becomes `https://<YOUR DOMAIN>/rsvp`.  
-When you're done or you want to refresh, simply delete the directory and re-clone the repository.  
+
+From the command-line, run `php install`. The installer will ask you a few questions and will help you configure rsvp.
