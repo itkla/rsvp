@@ -37,7 +37,6 @@
               <table class="table">
                 <thead>
                   <tr>
-                    <th><i class="fas fa-check"></i></th>
                     <th>Name</th>
                     <?php if($config["alcohol"] == true) { echo '<th><abbr title="Designated Driver">DD</abbr></th>'; } ?>
                   </tr>
