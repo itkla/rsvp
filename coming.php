@@ -46,6 +46,7 @@
                   <?php if($config["alcohol"] == false) { while($i!=count($entries)) { echo "<tr><td><b>" . $entries[$i]['name'] . "</b></td></tr>"; $i++; }} ?>
                 </tbody>
               </table>
+              <hr />
               <h1 class="title">
                 <?php echo $i; ?> attendees
               </h1>
