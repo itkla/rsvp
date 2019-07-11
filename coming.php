@@ -47,11 +47,9 @@
                 </tbody>
               </table>
               <hr />
-              <div class="notification is-success">
-                <h1 class="title">
-                  <?php echo $i; ?> attendees
-                </h1>
-              </div>
+              <h1 class="title">
+                <?php echo $i; ?> attendees
+              </h1>
               <h2>Not on this list? <a href=".">Sign up!</a></h2>
             </div>
           </div>
